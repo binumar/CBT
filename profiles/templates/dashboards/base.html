@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="./tailwind3.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        @media print {
+            /* Hide everything except the report card */
+            body * {
+                visibility: hidden;
+            }
+            #report-card * {
+                visibility: visible;
+            }
+            #report-card {
+                position: absolute;
+                left: -18%;
+                bottom: 5px;
+                top: 0;
+                width: 100%;
+            }
+    
+            /* Optionally, hide the print button */
+            .text-right {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <div class="bg-gray-900 text-gray-100 flex flex-col justify-between h-full overflow-auto">
+            <a class="font-bold bg-cyan-800 p-3 text-xl" href="#">F.S.T.C GASHUA CBT</a>
+            <hr>
+            <div class="flex items-center gap-2 p-2 bg-gray-800">
+                <div class="rounded-full bg-teal-900 w-10 h-10">
+                    <h1 class="font-bold text-center">A</h1>
+                </div>
+                <div>
+                    <h2 class="font-semibold text-lg">STUDENT</h2>
+                    <p class="text-sm">{{request.user.email}}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="w-64 h-screen bg-gray-800 text-white">
+                <div class="p-4">
+                    <ul>
+                        {% if request.user.is_support %}
+                            <div>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'profiles:admin-dashboard' %}">Dashboard</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'profiles:staffs' %}">Manage Staffs</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'profiles:students' %}">Manage Students</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:exams' %}">Exams</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:questions' %}">Questions</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:upload-questions' %}">Upload Question</a>
+                                <!-- <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:answers' %}">Options</a> -->
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:results' %}">View Results</a>
+                                <!-- <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="">Announcement</a> -->
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'profiles:logout' %}">Logout</a>
+                                <!-- <li>
+                                    <button class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out" onclick="toggleDropdown('dropdown1')">
+                                        Student
+                                    </button>
+                                    <ul id="dropdown1" class="hidden pl-4 overflow-hidden transition-all duration-500 ease-in-out transform-gpu origin-top">
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 1</li>
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 2</li>
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 3</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <button class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out" onclick="toggleDropdown('dropdown2')">
+                                        Subject
+                                    </button>
+                                    <ul id="dropdown2" class="hidden pl-4 overflow-hidden transition-all duration-500 ease-in-out transform-gpu origin-top">
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 1</li>
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 2</li>
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 3</li>
+                                    </ul>
+                                </li>  -->
+                            </div> 
+                        {% endif %}
+
+                        {% if request.user.is_teacher %}
+                            <div>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:add-question' %}">Add Question</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:upload-questions' %}">Upload Question</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="">Results</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="">Announcements</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'profiles:logout' %}">Logout</a>
+                                <!-- <li>
+                                    <button class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out" onclick="toggleDropdown('dropdown1')">
+                                        Student
+                                    </button>
+                                    <ul id="dropdown1" class="hidden pl-4 overflow-hidden transition-all duration-500 ease-in-out transform-gpu origin-top">
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 1</li>
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 2</li>
+                                        <li class="p-2 hover:bg-gray-700">Sub-item 3</li>
+                                    </ul>
+                                </li> -->
+                            </div> 
+                        {% endif %}
+                        {% if request.user.is_student %}
+                            <div>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:exam' %}">Exam</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="">Result</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'exams:answer-sheet' %}">Answer Sheets</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="">message</a>
+                                <a class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out inline-block" href="{% url 'profiles:logout' %}">Logout</a>
+                            </div> 
+                        {% endif %} 
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        {% block content %}
+        {% endblock %}
+
+
+    </div>
+
+    <script>
+        function toggleDropdown(id) {
+            // Close all open dropdowns
+            var dropdowns = document.querySelectorAll('ul[id^="dropdown"]');
+            dropdowns.forEach(function (dropdown) {
+                if (dropdown.id !== id) {
+                    dropdown.style.maxHeight = 0;
+                    dropdown.style.opacity = 0;
+                    dropdown.style.transform = 'scaleY(0.95)';
+                    setTimeout(function () {
+                        dropdown.classList.add('hidden');
+                    }, 500); // Matches the transition duration
+                }
+            });
+    
+            // Toggle the clicked dropdown
+            var element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+                element.style.maxHeight = element.scrollHeight + 'px';
+                element.style.opacity = 1;
+                element.style.transform = 'scaleY(1)';
+            } else {
+                element.style.maxHeight = 0;
+                element.style.opacity = 0;
+                element.style.transform = 'scaleY(0.95)';
+                setTimeout(function () {
+                    element.classList.add('hidden');
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    <header class="mb-8">
+        <h1 class="text-3xl font-bold text-center text-blue-600">Federal Science And Technical Collage Gashua</h1>
+        <h1 class="text-xl font-bold text-center text-blue-600">Online CBT  Portal</h1>
+        <p class="text-center text-gray-600">Address: 123 School Road, City, State</p>
+        <p class="text-center text-gray-600">Phone: (123) 456-7890 | Email: info@abchighschool.com</p>
+    </header>
+
+    <!-- Login Section -->
+    <div class="bg-white p-4 rounded-lg shadow-lg w-full max-w-sm">
+        <!-- School Logo -->
+        <div class="flex justify-center">
+            <img src="{{school_info.logo.url}}" alt="School Logo" class="h-24 w-24 rounded-full">
+        </div>
+        <form method = "POST" action="">
+            {% csrf_token %}
+            {{form}}
+            <div class="flex justify-center p-2 w-full">
+                <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 w-full font-bold">
+                    Register
+                </button>
+            </div>
+        </form>
+        <!-- Forgot Password Link -->
+        <div class="text-center mt-6">
+            already have an account
+            <a href="{% url 'profiles:login' %}" class="text-blue-600 hover:underline">Login</a>
+        </div>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-center text-blue-600">Federal Science And Technical Collage Gashua</h1>
+        <h1 class="text-xl font-bold text-center text-blue-600">Online CBT  Portal</h1>
+        <p class="text-center text-gray-600">Address: Yusufari Road Gashua Yobe State</p>
+        <p class="text-center text-gray-600">Phone: (+234) 987-7890 | Email: info@fstcg.com.ng</p>
+    </header>
+
+    <!-- Login Section -->
+    <div class="bg-white p-4 rounded-lg shadow-lg w-full max-w-sm">
+        <!-- School Logo -->
+        <div class="flex justify-center">
+            <img src="{{school_info.logo.url}}" alt="School Logo" class="h-24 w-28 h-28 rounded-full">
+        </div>
+
+        <!-- Login Form -->
+        <form method="POST" action="">
+            {% csrf_token %}
+            <!-- Username -->
+            <div class="mb-2">
+                <label for="username" class="block text-gray-700 font-bold mb-2">Username</label>
+                <input type="text" id="username" name="username" class="w-full p-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your username">
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+                <input type="password" id="password" name="password" class="w-full p-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your password">
+            </div>
+
+            <!-- Remember Me -->
+            <!-- <div class="flex items-center mb-6">
+                <input type="checkbox" id="remember" name="remember" class="mr-2">
+                <label for="remember" class="text-gray-700">Remember me</label>
+            </div> -->
+
+            <!-- Login Button -->
+            <div class="flex justify-center">
+                <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 w-full font-bold">
+                    Login
+                </button>
+            </div>
+        </form>
+
+        <!-- Forgot Password Link -->
+        <div class="text-center mt-6">
+            don'nt have an account
+            <a href="{% url 'profiles:signup' %}" class="text-blue-600 hover:underline">Signup</a>
+        </div>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
+
