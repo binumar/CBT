@@ -1,0 +1,29 @@
+{% extends 'dashboards/base.html' %}
+
+{% block content %}
+  <div class="p-4 w-full">
+    <div class="flex justify-between pb-4">
+        <div class="left">
+          <h1 class="font-semibold text-xl">Add Exam</h1>
+        </div>
+        <div class="text-sm">
+          <a href="">Dashboard ></a>
+          <a href="">Student ></a>
+          <a href="">Data Student</a>
+        </div>
+    </div>
+    <div class="bg-gray-100 p-3 border border-t-2 border-t-gray-400">
+        <h1 class="font-semibold pb-3">Add Exam Form</h1>
+        <hr>
+        <div class="container mx-auto w-1/2">
+          
+          <h1 class="font-bold text-gray-900 p-2 text-center">{{page}}</h1>
+          <form action="" method = 'POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="text-bold bg-blue-600 my-4 p-2 text-white text-xl rounded-lg" type="submit" value="Save">
+          </form>
+        </div>
+    </div>
+  </div>
+{% endblock content %}

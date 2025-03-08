@@ -1,0 +1,46 @@
+{% extends 'dashboards/base.html' %}
+
+{% block content %}
+  <div class="w-full">
+    <div class="bg-cyan-700 p-2 flex justify-between">
+      <div class="lef font-bold text-gray-100 space-y-1 border p-2">
+        <div class="bg-white h-1 w-6"></div>
+        <div class="bg-white h-1 w-6"></div>
+        <div class="bg-white h-1 w-6"></div>
+      </div>
+      <div class="flex items-center gap-1 px-2 text-gray-100">
+          <div class="rounded-full bg-teal-900">
+            <h1 class="font-bold text-center w-8 h-8">A</h1>
+          </div>
+          <h2 class="font-semibold text-lg">HI, Abubakar Umar</h2>
+      </div>
+    </div>
+    {% for message in messages %}
+      <div class="bg-green-500 text-white font-semibold text-center">{{message}}</div>
+    {% endfor %}
+
+    <div class="flex justify-between p-4">
+        <div class="left">
+          <h1 class="font-semibold text-xl">Add Option</h1>
+        </div>
+        <div class="text-sm">
+          <a href="">Dashboard ></a>
+          <a href="">Student ></a>
+          <a href="">Data Student</a>
+        </div>
+    </div>
+    <div class="bg-gray-100 p-3 border border-t-2 border-t-gray-400">
+        <h1 class="font-semibold pb-3">Add Option Form</h1>
+        <hr>
+        <div class="container mx-auto w-1/2">
+          
+          <h1 class="font-bold text-gray-900 p-2 text-center">{{page}}</h1>
+          <form action="" method = 'POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="text-bold bg-blue-600 my-4 p-2 text-white text-xl rounded-lg" type="submit" value="Save">
+          </form>
+        </div>
+    </div>
+  </div>
+{% endblock content %}

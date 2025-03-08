@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Result - {{ result.subject.name }}</title>
+</head>
+<body>
+    {% for r in result %}
+     <hr>
+     <h4>{{r.title}}</h4>
+     <button>view</button>
+     <hr>
+    {% endfor %}
+    <ul>
+        <li>end of first term exam <a href="">view</a></li>
+        <li>end of first term exam <a href="">view</a></li>
+        <li>end of first term exam <a href="">view</a></li>
+    </ul>
+</body>
+</html>

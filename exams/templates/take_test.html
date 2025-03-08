@@ -1,0 +1,37 @@
+{% extends 'exam/base.html' %}
+
+{% block title %}Take Test - {{ subject.name }}{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="grid grid-cols-3 gap-3 m-2">
+            {% for q in questions %}
+                <div class="border p-2 rounded-lg shadow">
+                    <h3 class="text-lg font-bold">{{ forloop.counter }}. {{q.question | safe}} <strong class="font-semibold">[{{q.marks}} Marks]</strong></h3>
+                
+                    <label>
+                        <input type="radio" name="{{ forloop.counter }}" value="a">
+                        {{ q.option1 }}
+                    </label><br>
+                    <label>
+                        <input type="radio" name="{{ forloop.counter }}" value="b">
+                        {{ q.option2 }}
+                    </label><br>
+                    <label>
+                        <input type="radio" name="{{ forloop.counter }}" value="c">
+                        {{ q.option3 }}
+                    </label><br>
+                    <label>
+                        <input type="radio" name="{{ forloop.counter }}" value="d">
+                        {{ q.option4 }}
+                    </label><br>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center">
+            <button class="bg-rose-500 text-white rounded-lg font-bold p-4 m-4" type="submit">SUBMIT EXAM</button>
+        </div>
+    </form>
+{% endblock %}

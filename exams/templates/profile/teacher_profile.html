@@ -1,0 +1,156 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% tailwind_css %}
+</head>
+<body>
+    <div class="flex">
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-64 h-screen bg-gray-800 text-white transition-all duration-300 ease-in-out">
+            <div class="p-4">
+                <h2 class="text-2xl font-bold mb-4">Sidebar Menu</h2>
+                <ul>
+                    <li>
+                        <a href="" class="w-full text-left p-2 inline-block hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="" class="w-full text-left p-2 inline-block hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out">Add Exam</a>
+                    </li>
+                    <li>
+                        <a href="" class="w-full text-left p-2 inline-block hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out">Add Option</a>
+                    </li>
+                    <li>
+                        <a href="" class="w-full text-left p-2 inline-block hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out">View Result</a>
+                    </li>
+                    <!-- <li>
+                        <button class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out" onclick="toggleDropdown('dropdown1')">
+                            Menu Item 1
+                        </button>
+                        <ul id="dropdown1" class="hidden pl-4 overflow-hidden transition-all duration-500 ease-in-out transform-gpu origin-top">
+                            <li class="p-2 hover:bg-gray-700">Sub-item 1</li>
+                            <li class="p-2 hover:bg-gray-700">Sub-item 2</li>
+                            <li class="p-2 hover:bg-gray-700">Sub-item 3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="w-full text-left p-2 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out" onclick="toggleDropdown('dropdown2')">
+                            Menu Item 2
+                        </button>
+                        <ul id="dropdown2" class="hidden pl-4 overflow-hidden transition-all duration-500 ease-in-out transform-gpu origin-top">
+                            <li class="p-2 hover:bg-gray-700">Sub-item 1</li>
+                            <li class="p-2 hover:bg-gray-700">Sub-item 2</li>
+                            <li class="p-2 hover:bg-gray-700">Sub-item 3</li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Content Section -->
+        <div class="flex-1 h-screen flex flex-col">
+            <!-- Navigation -->
+            <nav class="bg-gray-900 text-white p-4 flex justify-between items-center">
+                <button id="toggleSidebar" class="text-white p-2 focus:outline-none" onclick="toggleSidebar()">
+                    <!-- Sidebar Toggle Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+                <div class="flex items-center space-x-4">
+                    <span>Admin</span>
+                    <!-- Profile Icon -->
+                    <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-full w-10 h-10">
+                </div>
+            </nav>
+    
+            <!-- Main Content -->
+            <main class="flex-1 p-6 bg-gray-100">
+                <!-- Your content goes here -->
+                <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>
+                <p>Welcome, Teacher</p>
+                <!-- Statistics -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+                    <div class="bg-blue-500 text-white p-4 rounded-full">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4H9l4-4m0 0l4 4h-3v4h-1m-6 4h12a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v11a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-600">Total Students</p>
+                        <p class="text-2xl font-bold">1,245</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+                    <div class="bg-green-500 text-white p-4 rounded-full">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4H9l4-4m0 0l4 4h-3v4h-1m-6 4h12a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v11a2 2 0 002 2z"></path></svg>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+                    <div class="bg-yellow-500 text-white p-4 rounded-full">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6 4h-6a9 9 0 01-9-9V5a3 3 0 013-3h6a3 3 0 013 3v9a3 3 0 01-3 3H9"></path></svg>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+                    <div class="bg-red-500 text-white p-4 rounded-full">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4H9l4-4m0 0l4 4h-3v4h-1m-6 4h12a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v11a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-600">Total Exams</p>
+                        <p class="text-2xl font-bold">78</p>
+                    </div>
+                </div>
+            </div>
+
+            </main>
+    
+            <!-- Footer -->
+            <footer class="bg-gray-900 text-white p-4 text-center">
+                &copy; 2024 Your Company. All rights reserved.
+            </footer>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('w-64');
+            sidebar.classList.toggle('w-16');
+        }
+    
+        function toggleDropdown(id) {
+            var dropdowns = document.querySelectorAll('ul[id^="dropdown"]');
+            dropdowns.forEach(function (dropdown) {
+                if (dropdown.id !== id) {
+                    dropdown.style.maxHeight = 0;
+                    dropdown.style.opacity = 0;
+                    dropdown.style.transform = 'scaleY(0.95)';
+                    setTimeout(function () {
+                        dropdown.classList.add('hidden');
+                    }, 500);
+                }
+            });
+    
+            var element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+                element.style.maxHeight = element.scrollHeight + 'px';
+                element.style.opacity = 1;
+                element.style.transform = 'scaleY(1)';
+            } else {
+                element.style.maxHeight = 0;
+                element.style.opacity = 0;
+                element.style.transform = 'scaleY(0.95)';
+                setTimeout(function () {
+                    element.classList.add('hidden');
+                }, 500);
+            }
+        }
+    </script>
+        
+    
+</body>
+</html>

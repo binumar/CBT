@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Result - {{ result.subject.name }}</title>
+</head>
+<body>
+    <h1>Result for {{ result.subject.name }}</h1>
+    <p>Student: {{ result.student }}</p>
+    <p>Score: {{ result.score }}</p>
+    <a href="{% url 'exams:generate_report' result.subject.id %}">Download Report</a>
+    <br><br>
+    <a href="/">Return to Home</a>
+</body>
+</html>

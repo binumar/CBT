@@ -1,0 +1,98 @@
+{% extends 'dashboards/base.html' %}
+
+{% block content %}
+    <div class=" w-full relative">
+        <div class="bg-cyan-700 p-2 flex justify-between">
+            <div class="lef font-bold text-gray-100 space-y-1 border p-2">
+                <div class="bg-white h-1 w-6"></div>
+                <div class="bg-white h-1 w-6"></div>
+                <div class="bg-white h-1 w-6"></div>
+            </div>
+            <div class="flex items-center gap-1 px-2 text-gray-100">
+                <div class="rounded-full bg-teal-900">
+                    <h1 class="font-bold text-center w-8 h-8">A</h1>
+                </div>
+                <h2 class="font-semibold text-lg">HI, Abubakar Umar</h2>
+            </div>
+        </div>
+        {% for message in messages %}
+        <div class="bg-green-500 text-white font-semibold text-center">{{message}}</div>
+        {% endfor %}
+
+        <div class="flex justify-between p-4">
+            <div class="left">
+                <h1 class="font-semibold text-xl">Questions</h1>
+            </div>
+            <div class="text-sm">
+                <a href="">Dashboard ></a>
+                <a href="">Student ></a>
+                <a href="">Data Student</a>
+            </div>
+        </div>
+        <div class="bg-gray-100 p-3 border border-t-2 border-t-gray-400">
+            <h1 class="font-semibold pb-3">Master Data Questions</h1>
+            <hr>
+            <div class="flex flex-col pb-4">
+                <div class="flex justify-between">
+                    <ul class="flex gap-1 py-3">
+                        <li class="bg-blue-600 p-1 text-white border"><a href="{% url 'exams:add-question' %}">add</a></li>
+                        <li class="bg-green-600 p-1 text-white border"><a href="{% url 'exams:upload-questions' %}">import</a></li>
+                        <li class="bg-rose-600 p-1 text-white border"><a href="">reload</a></li>
+                    </ul>
+                    <div class="">
+                        <a class="bg-red-600 my-3 p-1 inline-block text-white border" href="">delete</a>
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="filter">
+                        <label for="filter">Filter: </label>
+                        <select class="px-3 py-1" name="" id="">
+                            <option value="">10</option>
+                        </select>
+                        <label for="entries">Entries: </label>
+                    </div>
+                    <ul class="flex items-center">
+                        <li class="p-1 border border-gray-400 bg-gray-200"><a href="{% url 'exams:upload-questions' %}">pdf</a></li>
+                        <li class="p-1 border border-gray-400 bg-gray-200"><a href="{% url 'exams:upload-questions' %}">excel</a></li>
+                        <li class="p-1 border border-gray-400 bg-gray-200"><a href="{% url 'exams:upload-questions' %}">word</a></li>
+                    </ul>
+                    <div class="search">
+                        <label for="">Search:</label>
+                        <input class="p-1" type="text" placeholder="Keyword">
+                    </div>
+                </div>
+            </div>
+            <div class="overflow-auto rounded-lg shadow md:block">
+                <table class="w-full">
+                    <thead class="bg-gray-200 border-b-2 border-gray-300">
+                        <tr>
+                            <th class="p-3 w-8 text-sm font-semibold tracking-wide text-left">S/N</th>
+                            <th class=" w-24 p-3 text-sm font-semibold tracking-wide text-left">Exam</th>
+                            <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Text</th>
+                            <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-green-100" >
+                        {% for question in questions %}
+                            <tr class="bg-white">
+                                <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{forloop.counter}}</td>
+                                <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{question.exam.title}} {{question.subject.name}}</td>
+                                <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{question.question | safe}}</td>
+                                <td>
+                                    <ul class="flex gap-1">
+                                        <li class="bg-blue-600 p-1 text-white border"><a href="#">View</a></li>
+                                        <li class="bg-green-600 p-1 text-white border"><a href="{% url 'exams:update-question' question.id %}">Update</a></li>
+                                        <li class="bg-rose-600 p-1 text-white border"><a href="{% url 'exams:delete-question' question.id %}">Delete</a></li>
+                                    </ul>
+                                    
+                                </td>
+                                
+
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

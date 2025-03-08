@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Answer Sheet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+<div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+    <h1 class="text-3xl font-bold text-center mb-4">Student Answer Sheet</h1>
+    <h2 class="text-xl font-semibold text-center text-gray-700 mb-6">{{ exam.name }} - {{ subject.name }}</h2>
+    
+    <div class="mb-6">
+        <p class="text-lg"><strong>Student:</strong> {{ student.username }}</p>
+        <p class="text-lg"><strong>Date:</strong> {{ exam.date }}</p>
+        <p class="text-lg"><strong>Total Score:</strong> {{ total_score }} / {{ max_score }}</p>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="py-2 px-4 border-b">Question</th>
+                    <th class="py-2 px-4 border-b">Selected Answer</th>
+                    <th class="py-2 px-4 border-b">Status</th>
+                    <th class="py-2 px-4 border-b">Correct Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for answer in student_answers %}
+                <tr>
+                    <td class="py-2 px-4 border-b text-gray-700">{{ answer.question.question }}</td>
+                    <td class="py-2 px-4 border-b">{{ answer.selected_answer }}</td>
+                    <td class="py-2 px-4 border-b">
+                        {% if answer.is_correct %}
+                            <span class="text-green-500 font-semibold">Correct</span>
+                        {% else %}
+                            <span class="text-red-500 font-semibold">Incorrect</span>
+                        {% endif %}
+                    </td>
+                    <td class="py-2 px-4 border-b">
+                        {% if not answer.is_correct %}
+                            {{ answer.correct_answer }}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-8 text-center">
+        <button onclick="window.print()" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">
+            Print Answer Sheet
+        </button>
+    </div>
+</div>
+
+</body>
+</html>

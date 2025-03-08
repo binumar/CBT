@@ -1,0 +1,50 @@
+{% extends 'dashboards/base.html' %}
+
+{% block content %}
+    <!-- Confirmation Section -->
+    <div class="bg-white p-8 w-full">
+        <!-- Heading -->
+        <h1 class="text-2xl font-bold text-center text-blue-600 mb-6">Test Confirmation</h1>
+
+        <div class="flex justify-between">
+            <!-- Student Information -->
+            <div class="mb-6">
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Student Information</h2>
+                <p class="text-gray-600"><span class="font-bold">Name:</span> {{student.full_name}}</p>
+                <p class="text-gray-600"><span class="font-bold">Student ID:</span> 12345</p>
+                <p class="text-gray-600"><span class="font-bold">Class:</span> {{student.level}}</p>
+            </div>
+
+            <!-- Test Information -->
+            <div class="mb-6">
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Test Information</h2>
+                <p class="text-gray-600"><span class="font-bold">Title:</span> {{exam.title}}</p>
+                <p class="text-gray-600"><span class="font-bold">Duration:</span> {{exam.duration}} minutes</p>
+                <p class="text-gray-600"><span class="font-bold">Total Questions:</span> {{exam.number_of_questions}}</p>
+            </div>
+            <!-- Test Information -->
+            <div class="mb-6">
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Instructions</h2>
+                <p class="text-gray-600">Read The Questions Carefully</p>
+                <p class="text-gray-600">cross check your answer before submitting</p>
+            </div>
+        </div>
+
+
+        <!-- Confirmation Message -->
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
+            <p class="font-bold">Please confirm your information before proceeding.</p>
+            <p>Once you start the test, you cannot go back to change this information.</p>
+        </div>
+
+        <div class="text-center">
+            <input class="rounded-lg" type="text" placeholder="Exam Token">
+        </div>
+
+        <!-- Proceed Button -->
+        <div class="flex justify-center">
+            <a href="{% url 'exams:take_test' exam.id %}" class="inline-block text-bold bg-blue-600 my-4 p-2 text-white text-xl rounded-lg">Start test</a>
+        </div>
+    </div>
+{% endblock %}
+
