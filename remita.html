@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buy cool new product</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://demo.remita.net/payment/v1/remita-pay-inline.bundle.js"></script>
+  </head>
+  <body>
+    <section>
+      <div class="cart-container">
+        <h1>Essential Walking Shoes</h1>
+        <div class="cart-item">
+          <img src="https://www.remita.net/developers/assets/images/logos/ecomm3.svg" alt="Essential Walking Shoes"/>
+          <div class="item-details">
+            <h5 class="item-amount">₦15,000.00</p>
+          </div>
+        </div>
+        <div class="button-container">
+          <form onsubmit="makePayment()" id="payment-form">
+          <input type="button" onclick="makePayment()" value="Submit" class="button"/>
+        </form>
+        </div>
+      </div>
+    </section>
+    <script>         
+          function makePayment() {
+              var form = document.querySelector("#payment-form");
+              var paymentEngine = RmPaymentEngine.init({
+                  key:'QzAwMDAyNzEyNTl8MTEwNjE4NjF8OWZjOWYwNmMyZDk3MDRhYWM3YThiOThlNTNjZTE3ZjYxOTY5NDdmZWE1YzU3NDc0ZjE2ZDZjNTg1YWYxNWY3NWM4ZjMzNzZhNjNhZWZlOWQwNmJhNTFkMjIxYTRiMjYzZDkzNGQ3NTUxNDIxYWNlOGY4ZWEyODY3ZjlhNGUwYTY=',
+                  transactionId: Math.floor(Math.random()*1101233), // Replace with a reference you generated or remove the entire field for us to auto-generate a reference for you. Note that you will be able to check the status of this transaction using this transaction Id
+                  customerId: '39832',
+                  firstName: 'John',
+                  lastName: 'Doe',
+                  email: 'john.doe@mailinator.com',
+                  amount: 15000,
+                  narration: 'Payment for Shoe',
+                  onSuccess: function (response) {
+                    console.log('callback Successful Response', response);
+                  },
+                  onError: function (response) {
+                    console.log('callback Error Response', response);
+                  },
+                  onClose: function () {
+                      console.log("closed");
+                  }
+              });
+               paymentEngine.showPaymentWidget();
+          }
+      </script>
+      <style>
+      body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.cart-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 350px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+.item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+
+.item-name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.item-amount {
+  color: #888;
+  font-size: 16px;
+}
+
+.checkout-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+      
+      .button {
+        background-color: #1CA78B;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+    </style>
+  </body>
+</html>

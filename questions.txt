@@ -1,0 +1,20 @@
+What is the capital of France?, Paris, London, Rome, Berlin, Option4, 5
+What is 2 + 2?, 3, 4, 5, 6, Option4, 2
+What is the largest planet in our solar system?, Earth, Mars, Jupiter, Saturn, Option4, 5
+Who wrote Hamlet?, Shakespeare, Dickens, Hemingway, Fitzgerald, Option3, 3
+Which element has the chemical symbol O?, Oxygen, Osmium, Ozone, Oganesson, Option1, 4
+Who was the first president of the United States?, George Washington, Abraham Lincoln, Thomas Jefferson, Theodore Roosevelt, Option3, 3
+How many continents are there?, 5, 6, 7, 8, Option2, 1
+What is the boiling point of water?, 90°C, 95°C, 100°C, 105°C, 100°C, 2
+Which gas do plants absorb from the atmosphere?, Oxygen, Carbon Dioxide, Nitrogen, Hydrogen, Option2, 4
+Who painted the Mona Lisa?, Van Gogh, Picasso, Da Vinci, Michelangelo, Option3, 4
+What is the speed of light?, 300000 km/s, 150000 km/s, 500000 km/s, 700000 km/s, Option2, 5
+What is the tallest mountain on Earth?, Mount Everest, K2, Kangchenjunga, Mount Fuji, Option2, 5
+Which is the smallest ocean in the world?, Atlantic Ocean, Indian Ocean, Southern Ocean, Arctic Ocean, Option4, 4
+What is the chemical symbol for water?, H2O, H2O2, O2, H2, H2O, 2
+Who discovered penicillin?, Marie Curie, Louis Pasteur, Alexander Fleming, Isaac Newton, Option1, 5
+Which planet is closest to the sun?, Earth, Venus, Mercury, Mars, Mercury, 3
+Which is the longest river in the world?, Amazon River, Nile River, Yangtze River, Ganges River, Option1, 4
+What is the freezing point of water?, 0°C, -1°C, 32°F, 100°C, Option1, 2
+Which country has the largest population?, USA, India, China, Russia, Option1, 3
+Who was the first woman to fly solo across the Atlantic?, Amelia Earhart, Harriet Quimby, Bessie Coleman, Elinor Smith, Option2, 5
